@@ -16,7 +16,7 @@ class SinglePostPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chooper Blog'),
+        title: Text('Chopper Blog'),
       ),
       body: FutureBuilder<Response>(
         future: Provider.of<PostApiService>(context).getPost(postId),
@@ -35,9 +35,15 @@ class SinglePostPage extends StatelessWidget {
   Widget _buildPost(Map<dynamic, dynamic> post) {
     return Column(
       children: [
-        Text(post['title'],style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(child: Text(post['title'],style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),)),
+        ),
         SizedBox(height: 8,),
-        Text(post['body']),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(child: Text(post['body'])),
+        ),
       ],
     );
   }
